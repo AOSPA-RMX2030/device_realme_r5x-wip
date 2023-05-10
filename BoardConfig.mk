@@ -13,6 +13,7 @@
 # limitations under the License.
 
 DEVICE_PATH := device/realme/r5x
+COMMON_PATH := device/qcom/common
 
 # AVB
 BOARD_AVB_ENABLE := true
@@ -44,6 +45,12 @@ BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 
 # Display
 TARGET_SCREEN_DENSITY := 320
+
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
+DEVICE_MATRIX_FILE += $(COMMON_PATH)/compatibility_matrix.xml
+
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/configs/hidl/framework_compatibility_matrix.xml
 
 # Kernel
 BOARD_KERNEL_CMDLINE := \
